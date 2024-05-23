@@ -1,0 +1,184 @@
+               -:Java 8 Notes:-
+			    --------------
+				
+1. What is Lamda Expression?
+A. Lamda means it is an Anonimus function. 
+ it means the method which does contain Method name , Access modifier and Return type 
+ is called as Anonimus. 
+ -> Lamda can have set of parametors,lamda symbol and function body.
+  Note: When we have single line in body then curly braces are optional
+*-> By using Functional Interface we can achieve Lamda Expression. 
+
+   Ex:-1
+ public void m1 ( ) {
+ s.o.p("hi");
+ }
+ ( ) -> { s.o.p ("hi") }
+  
+ ( ) -> s.o.p ("hi");
+
+2. What is Functional Interface ?
+A. Functional Interface means the interface which contains only one absruct Method
+ is called as Functional Interface.
+ -> Functional Interfaces are used to invoke Lambda expressions
+ -> To represent one interface as Functional Interface we will use @FunctionalInterface annotation.
+ Note: When we write @FunctionalInterface then our compiler will check interface 
+    contains only one abstract method or not.
+ -> this Functional Interface can have any number of Default and Static methods.
+ 
+ -> Runnable : run()
+ -> Callble  : call()
+ -> Comparable: compareTo()
+ -> Comparator: compare()
+ 
+3.What is Predicate Functional Interface ? 
+A.
+-> It is predefined Functional interface 
+-> It is used check condition and returns true or false value
+-> Predicate interface having only one abstract method that is test (T t);
+
+4. What is Supplier Functional Interface?
+A. 
+-> Supplier is a predefined functional interface introduced in java 1.8v
+-> It contains only one abstract method that is get ( ) method
+-> Supplier interface will not take any input, it will only returns the value.
+ 
+5.What is Consumer Functional Interface?
+A.
+ -> Consumer is predefined functional interface
+ -> It contains one abstract method i.e accept (T t)
+ -> Consumer will accept input but it won't return anything
+ Note: in java 8 forEach ( ) method got introduced. forEach(Consumer consumer) 
+method will take Consumer as parameter
+
+6.What is Function Functional Interface?
+A.
+  -> Function is predefined functional interface 
+  -> Funcation interface having one abstract method i.e apply(T r)
+  -> It takes input and it returns output
+  
+7.Method Reference
+A.
+ -> Method reference means Refer to one method from another method  
+ -> it is used to refer the method of functional interface
+ 
+8.forEach ( ) method?
+A.
+  -> forEach (Consumer c) method introduced in java 1.8v
+  -> forEach ( ) method added in Iterable interface
+  -> forEach ( ) method is a default method (it is having body)
+  -> This method is used to access each element of the collection (traverse 
+     collection from start to end) 
+	 
+9. StringJoiner?
+A.
+ -> java.util.StringJoiner class introduced in java 1.8v
+ -> It is used to join more than one String with specified delimiter
+ -> We can concat prefix and suffix while joininging strings using StringJoiner	 
+ 
+10.What is Optional Class?
+A>
+ -> java.util.Optional class introduced in java 1.8v
+ -> Optional class is used to avoid NullPointerExceptions in the program 
+ 
+11. Date & Time API Changes?
+ A.
+  -> In java we have below 2 classes to represent Date
+   1) java.util.Date 
+   2) java.sql.Date
+ Note: When we are performing database operations then we will use java.sql.Date class.
+   -> For normal Date related operations we will use java.util.Date class
+   Date d = new Date ( );
+   System.out.prinln(d);
+ Note: When we create Object for Date class, it will represent both date and time.
+   -> If we want to get only date or only time then we need to format it using 
+      SimpleDateFormat class. 
+	  
+12. SimpleDateFormat?
+ A.
+ -> SimpleDateFormat is a predefined class in java.text pacakage
+  -> This class provided methods to perform Date conversions
+      Date to String conversion  ===>   String format (Date d) 
+      String to Date conversion ===>  Date parse(String str)	  
+	  
+13.  Stream API?
+A.
+ -> Stream API introduced in java 1.8v
+ -> Stream API is used to process the data
+ Note: Collections are used to store the data
+ -> Stream API is one of the major features added in java 1.8v
+ -> Stream in java can be defined as sequence of elements that comes from a source.
+ -> Source of data for the Stream can be array or collectio	  
+	  
+
+14.Stream Operations?
+A.
+  -> Stream API provided several methods to perform Operations on the data
+  -> We can divide Stream api methods into 2 types
+  
+   1) Intermediate Operational Methods
+   2) Terminal Operational Methods
+   
+  -> Intermediate Operational methods will perform operations on the stream and 
+     returns a new Stream
+     Ex: filter ( ) , map ( ) etc....
+	 -> Terminal Operational methods will take input and will provide result as output.
+     Ex:  count ( ) 	 
+
+15. Filter()?
+A.
+  -> Filtering means getting required data from original data
+  -> To apply filter on the data, Stream api provided filter ( ) method	 
+
+16. Mapping Operations?
+A.
+  -> Mapping operations are belongs to intermediate operations in the Stream api
+  -> Mapping operations are used to transform the stream elements and return 
+     transformed elements as new Stream
+	 
+17. Slicing Operations with Stream?
+A. 
+ 1) distinct ( )  => To get unique elements from the Stream
+ 2) limit ( long maxSize )  => Get elements from the stream based on given size
+ 3) skip (long n)  => It is used to skip given number of elements from starting 
+    position of the stream 
+ Note: All the above 3 methods are comes under Intermediate Operational Methods. 
+       They will perform operation and returns new Stream.
+	 
+18.Matching Operations with Stream?
+A.  
+ 1)  boolean anyMatch (Predicate p )
+ 2)  boolean allMatch (Predicate p )
+ 3)  boolean noneMatch (Predicate p )
+ Note: The above 3 methods are belongs to Terminal Operations because they will do 
+     operation and they will return result directley (they won't return stream)
+  -> The above methods are used to check the given condition and returns true or 
+     false value based on condition.
+
+19.Collectors with Stream?
+A.
+ -> Collectors are used to collect data from Stream	 
+
+20. Intermediate Operations?
+A. 
+    Filters ----> filter ( ) 
+    Mappings ----> map  ( ) & flatMap ( )
+    Slicing      ----> distinct ( ) & limit ()  & skip ( )
+
+21.  Terminal Operations   
+A. 
+     Finding   ---> findFirst ( ) & findAny ( )
+     Matching  ---> anyMatch ( ) & allMatch ( ) & noneMatch ( )
+     Collecting  ---> collect ( )
+	 
+22.What is Group By  ?
+A.
+     Group By is used categorize the data / Grouping the data
+  -> When we use groupingBy ( ) function with stream they it will group the data as 
+    Key-Value(s) pair and it will return Map object 
+ 
+23.Parallel Streams?
+A.
+  -> Generally Streams will execute in sequence order
+  -> To improve execution process of the stream we can use parallel streams
+  -> Paralell Streams introduced to improve performance of the program. 
