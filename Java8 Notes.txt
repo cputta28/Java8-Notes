@@ -122,7 +122,7 @@ A.
   -> Intermediate Operational methods will perform operations on the stream and 
      returns a new Stream
      Ex: filter ( ) , map ( ) etc....
-	 -> Terminal Operational methods will take input and will provide result as output.
+	 -> Terminal Operational methods will take input and it w`ill provide result as output.
      Ex:  count ( ) 	 
 
 15. Filter()?
