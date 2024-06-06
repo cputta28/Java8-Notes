@@ -3,7 +3,7 @@
 				
 1. What is Lamda Expression?
 A. Lamda means it is an Anonimus function. 
- it means the method which does contain Method name , Access modifier and Return type 
+ it means the method which does not contain Method name , Access modifier and Return type 
  is called as Anonimus. 
  -> Lamda can have set of parametors,lamda symbol and function body.
   Note: When we have single line in body then curly braces are optional
